@@ -1,8 +1,7 @@
-    #Lab 1a Walkthru
 
 ####     Create VPC
 
-*   **Vpc and more**
+#### Vpc and more
 * **Name tag auto-generation** 
     Name: `dawgs_armageddon` 
 * **IPv4 CIDR block**
@@ -18,7 +17,7 @@
 
 ####     Create Security Group
 
-*   **Basic details**
+#### Basic details
 * **Name** `ec2-lab-sg`
 * **VPC**   `dawgs_armegeddon`
 *   **Inbound rules**
@@ -58,7 +57,7 @@ Policy & Roles to allows EC2 to get secret:
 
 ####      Launch instance
 
-    * **Name and tags** 
+#### Name and tags 
 * **Name** `ec2-lab-sg`
 * **Allpication and OS images (Amazon machine Image)
     `Amazon Linux`
@@ -74,7 +73,7 @@ Policy & Roles to allows EC2 to get secret:
 
 ####    Aurora and RDS
 
-   * **Datatabases**
+#### Datatabases
 * **Create database**
 * **Choose a database creation method** `Full configuration`
 * **Engine options** `Mysql`
@@ -97,7 +96,7 @@ Policy & Roles to allows EC2 to get secret:
 
 ####    Secret Manager
 
-    * **Store a new secret**
+#### Store a new secret
 * **Secret type** `Credentials for Amazon RDS database` 
 * **Credentials** `admin`
 * **password** `*******`
