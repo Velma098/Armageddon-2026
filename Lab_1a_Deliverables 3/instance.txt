@@ -1,0 +1,177 @@
+{
+    "Reservations": [
+        {
+            "ReservationId": "r-05626a21bf32dec6e",
+            "OwnerId": "159903201588",
+            "Groups": [],
+            "Instances": [
+                {
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/xvda",
+                            "Ebs": {
+                                "AttachTime": "2026-01-21T15:41:49+00:00",
+                                "DeleteOnTermination": true,
+                                "Status": "attached",
+                                "VolumeId": "vol-0f3d874f1d063b243"
+                            }
+                        }
+                    ],
+                    "ClientToken": "db29bc63-7ed1-42ea-95ed-46ccd078f9e0",
+                    "EbsOptimized": true,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "IamInstanceProfile": {
+                        "Arn": "arn:aws:iam::159903201588:instance-profile/ec2_secret_role",
+                        "Id": "AIPASKOXZHE2GSKD76KAX"
+                    },
+                    "NetworkInterfaces": [
+                        {
+                            "Association": {
+                                "IpOwnerId": "amazon",
+                                "PublicDnsName": "ec2-18-215-177-184.compute-1.amazonaws.com",
+                                "PublicIp": "18.215.177.184"
+                            },
+                            "Attachment": {
+                                "AttachTime": "2026-01-21T15:41:48+00:00",
+                                "AttachmentId": "eni-attach-08ef48c39a39a5fc9",
+                                "DeleteOnTermination": true,
+                                "DeviceIndex": 0,
+                                "Status": "attached",
+                                "NetworkCardIndex": 0
+                            },
+                            "Description": "",
+                            "Groups": [
+                                {
+                                    "GroupId": "sg-04fefc6eb670038cb",
+                                    "GroupName": "ec2-lab-sg"
+                                },
+                                {
+                                    "GroupId": "sg-044dce1fe6d1aa25a",
+                                    "GroupName": "ec2-rds-1"
+                                }
+                            ],
+                            "Ipv6Addresses": [],
+                            "MacAddress": "0a:ff:c8:0b:a9:55",
+                            "NetworkInterfaceId": "eni-0d8999a543034081f",
+                            "OwnerId": "159903201588",
+                            "PrivateDnsName": "ip-10-75-2-41.ec2.internal",
+                            "PrivateIpAddress": "10.75.2.41",
+                            "PrivateIpAddresses": [
+                                {
+                                    "Association": {
+                                        "IpOwnerId": "amazon",
+                                        "PublicDnsName": "ec2-18-215-177-184.compute-1.amazonaws.com",
+                                        "PublicIp": "18.215.177.184"
+                                    },
+                                    "Primary": true,
+                                    "PrivateDnsName": "ip-10-75-2-41.ec2.internal",
+                                    "PrivateIpAddress": "10.75.2.41"
+                                }
+                            ],
+                            "SourceDestCheck": true,
+                            "Status": "in-use",
+                            "SubnetId": "subnet-094a08819531583ed",
+                            "VpcId": "vpc-0ce8d33707d154919",
+                            "InterfaceType": "interface",
+                            "Operator": {
+                                "Managed": false
+                            }
+                        }
+                    ],
+                    "RootDeviceName": "/dev/xvda",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [
+                        {
+                            "GroupId": "sg-04fefc6eb670038cb",
+                            "GroupName": "ec2-lab-sg"
+                        },
+                        {
+                            "GroupId": "sg-044dce1fe6d1aa25a",
+                            "GroupName": "ec2-rds-1"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "ec2-lab-sg"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    },
+                    "MetadataOptions": {
+                        "State": "applied",
+                        "HttpTokens": "required",
+                        "HttpPutResponseHopLimit": 2,
+                        "HttpEndpoint": "enabled",
+                        "HttpProtocolIpv6": "disabled",
+                        "InstanceMetadataTags": "disabled"
+                    },
+                    "EnclaveOptions": {
+                        "Enabled": false
+                    },
+                    "BootMode": "uefi-preferred",
+                    "PlatformDetails": "Linux/UNIX",
+                    "UsageOperation": "RunInstances",
+                    "UsageOperationUpdateTime": "2026-01-21T15:41:48+00:00",
+                    "PrivateDnsNameOptions": {
+                        "HostnameType": "ip-name",
+                        "EnableResourceNameDnsARecord": false,
+                        "EnableResourceNameDnsAAAARecord": false
+                    },
+                    "MaintenanceOptions": {
+                        "AutoRecovery": "default",
+                        "RebootMigration": "default"
+                    },
+                    "CurrentInstanceBootMode": "uefi",
+                    "NetworkPerformanceOptions": {
+                        "BandwidthWeighting": "default"
+                    },
+                    "Operator": {
+                        "Managed": false
+                    },
+                    "InstanceId": "i-0b889d18c665f2af3",
+                    "ImageId": "ami-07ff62358b87c7116",
+                    "State": {
+                        "Code": 16,
+                        "Name": "running"
+                    },
+                    "PrivateDnsName": "ip-10-75-2-41.ec2.internal",
+                    "PublicDnsName": "ec2-18-215-177-184.compute-1.amazonaws.com",
+                    "StateTransitionReason": "",
+                    "KeyName": "armageddon_kp",
+                    "AmiLaunchIndex": 0,
+                    "ProductCodes": [],
+                    "InstanceType": "t3.micro",
+                    "LaunchTime": "2026-01-21T15:41:48+00:00",
+                    "Placement": {
+                        "AvailabilityZoneId": "use1-az4",
+                        "GroupName": "",
+                        "Tenancy": "default",
+                        "AvailabilityZone": "us-east-1b"
+                    },
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "SubnetId": "subnet-094a08819531583ed",
+                    "VpcId": "vpc-0ce8d33707d154919",
+                    "PrivateIpAddress": "10.75.2.41",
+                    "PublicIpAddress": "18.215.177.184"
+                }
+            ]
+        }
+    ]
+}
+
+

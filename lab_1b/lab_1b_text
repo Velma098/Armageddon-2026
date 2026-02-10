@@ -1,0 +1,96 @@
+####     Create VPC
+
+#### Vpc and more
+* **Name tag auto-generation** 
+    Name: `dawgs_armageddon` 
+* **IPv4 CIDR block**
+    IPv4 CIDR block: `10.75.0.0/16`
+
+####  Create Parameters:
+(can only create 2 because 3rd requires endpoint from RDS) 
+	- /lad/db/name     (value) = labdb
+	- /lab/db/port     (value) = 3306
+
+#### Create SNS Topic:
+```bash
+aws sns create-topic --name lab-db-incidents
+```
+arn:aws:sns:us-east-1:159903201588:lab-db-incidents
+
+```bash
+aws sns subscribe \
+   --topic-arn arn:aws:sns:us-east-1:159903201588:lab-db-incidents \
+   --protocol email \
+   --notification-endpoint firstofmyname5701@outlook.com
+```
+#### Create CloudWatch alarm:
+````bash
+aws cloudwatch put-metric-alarm \
+  --alarm-name lab-db-connection-failure \
+  --alarm-description "Alarm when the app fails to connect to RDS" \
+  --metric-name DBConnectionErrors \
+  --namespace Lab/RDSApp \
+  --statistic Sum \
+  --period 300 \
+  --threshold 3 \
+  --comparison-operator GreaterThanThreshold \
+  --evaluation-periods 1 \
+  --alarm-actions arn:aws:sns:us-east-1:159903201588:lab-db-incidents \
+  --treat-missing-data notBreaching
+```
+    `Create Security Groups`
+    EC2 (lab-ec2-sg)
+    -HTTP 
+    -SSH
+    RDS (lab-rds-sg)
+	-3306
+ 
+     `Create Database`
+    lab-mysql self-managed 
+    secret: admin pw: lopsword5701
+
+    `Create Iam Role`
+    cloudwatch_parameter_read_secret
+
+    Attach policy below
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ReadSpecificSecret",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": "arn:aws:secretsmanager:us-east-1:159903201588:secret:lab/rds/mysql*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParameter",
+                "ssm:GetParameters"
+            ],
+            "Resource": "arn:aws:ssm:us-east-1:159903201588:parameter/lab/db/*"
+        }
+    ]
+}
+```
+
+    #Also add CloudWatch agent server policy
+
+    Create 3rd parameter:
+
+    Get endpoint from database - lab-mysql.c4fomu6c0pw8.us-east-1.rds.amazonaws.com
+
+    Create Instance and connect IAM role: 
+
+      ec2-lab-sg
+      cloudwatch_parameter_read_secret
+
+
+    Successfully got webpage.
+    Successfully initialized database
+
+    Now we inject failure: 3 choices for project include stopping database, changind db password, stop database.
